@@ -1,0 +1,31 @@
+{
+    "name": "death_satan/sms-sdk",
+    "description": "This is a Sms library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DeathSatan\\SmsSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Death-Satan",
+            "email": "2771717608@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "dev-master",
+        "phpunit/phpunit": "9.5.x-dev",
+        "phpstan/phpstan": "1.8.x-dev"
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml --colors=always",
+        "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
+        "cs-fix": "php-cs-fixer fix $1"
+    }
+}
