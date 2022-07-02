@@ -4,5 +4,3 @@ parameters:
     checkGenericClassInNonGenericObjectType: false
     paths:
         - src
-    ignoreErrors:
-            - '#Unsafe usage of new static\(\)\.#'
