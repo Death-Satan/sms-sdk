@@ -1,10 +1,10 @@
 <?php
 
 $header = <<<'EOF'
-This file is part of Hyperf Extend.
-
-@link     https://www.cnblogs.com/death-satan
-@license  https://github.com/Death-Satan/hyperf-validate
+this file Author is Death-Satan.
+Sms Manage
+@homepage https://github.com/Death-Satan
+@link https://github.com/Death-Satan/sms-sdk
 EOF;
 
 return (new PhpCsFixer\Config())
