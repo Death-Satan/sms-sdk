@@ -1,18 +1,24 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * this file Author is Death-Satan.
+ * Sms Manage
+ * @homepage https://github.com/Death-Satan
+ * @link https://github.com/Death-Satan/sms-sdk
+ */
 namespace DeathSatan\SmsSdkTest\Cases;
 
 use DeathSatan\SmsSdk\Contracts\Server\Params;
 use DeathSatan\SmsSdk\Contracts\Server\Response;
 use DeathSatan\SmsSdk\SmsAdapter;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class SmsAdapterTest extends AbstractTestCase
 {
-    protected function adapter()
-    {
-        return \Mockery::mock(SmsAdapter::class);
-    }
-
     public function testSendContact()
     {
         $adapter = $this->adapter();
@@ -29,5 +35,10 @@ class SmsAdapterTest extends AbstractTestCase
             ->andReturn($server_response);
 
         $this->assertTrue($adapter->smsBatchSend($send_params) instanceof Response);
+    }
+
+    protected function adapter()
+    {
+        return \Mockery::mock(SmsAdapter::class);
     }
 }
