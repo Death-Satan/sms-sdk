@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @homepage https://github.com/Death-Satan
  * @link https://github.com/Death-Satan/sms-sdk
  */
-namespace Cases;
+namespace DeathSatan\SmsSdkTest\Cases;
 
 use PHPUnit\Framework\TestCase;
 
