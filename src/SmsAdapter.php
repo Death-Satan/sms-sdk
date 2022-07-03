@@ -9,7 +9,9 @@ declare(strict_types=1);
  */
 namespace DeathSatan\SmsSdk;
 
-abstract class SmsAdapter
+use DeathSatan\SmsSdk\Contracts\Sms\Send;
+
+abstract class SmsAdapter implements Send
 {
     /**
      * 你的adapter配置名.

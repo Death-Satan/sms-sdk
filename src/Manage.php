@@ -9,6 +9,10 @@ declare(strict_types=1);
  */
 namespace DeathSatan\SmsSdk;
 
+use DeathSatan\SmsSdk\Contracts\Sms\Query;
+use DeathSatan\SmsSdk\Contracts\Sms\Send;
+use DeathSatan\SmsSdk\Contracts\Sms\Sign;
+use DeathSatan\SmsSdk\Contracts\Sms\Template;
 use DeathSatan\SmsSdk\Exceptions\SmsException;
 
 class Manage
@@ -28,9 +32,24 @@ class Manage
     }
 
     /**
+     * @param mixed $name
+     * @param mixed $arguments
      * @throws SmsException
      */
-    public function getAdapter(): SmsAdapter
+    public function __call($name, $arguments)
+    {
+        $adapter = $this->adapter();
+        if (! method_exists($adapter, $name)) {
+            throw new SmsException('Adapter:' . get_class($adapter) . ' NotFound method');
+        }
+        return call_user_func_array([$adapter, $arguments], $arguments);
+    }
+
+    /**
+     * @throws SmsException
+     * @return Query|Send|Sign|SmsAdapter|Template
+     */
+    public function adapter()
     {
         $adapter_name = $this->getAdapterName();
         $adapter = new $adapter_name($this->getAdapterConfig());
